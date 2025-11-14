@@ -10,7 +10,7 @@ namespace Nimble.Modulith.Customers.UseCases.Orders.Commands;
 public class CreateOrderHandler(
     IRepository<Order> orderRepository,
     IReadRepository<Customer> customerRepository,
-    IMediator mediator) 
+    IMediator mediator)
     : ICommandHandler<CreateOrderCommand, Result<OrderDto>>
 {
     public async ValueTask<Result<OrderDto>> Handle(CreateOrderCommand command, CancellationToken ct)

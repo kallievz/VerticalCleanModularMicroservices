@@ -1,4 +1,3 @@
-using Ardalis.Result;
 using FastEndpoints;
 using Mediator;
 using Nimble.Modulith.Customers.UseCases.Customers.Queries;

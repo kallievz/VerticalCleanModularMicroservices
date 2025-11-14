@@ -6,7 +6,7 @@ using Nimble.Modulith.Customers.Domain.OrderAggregate;
 
 namespace Nimble.Modulith.Customers.UseCases.Orders.Queries;
 
-public class GetOrderByIdHandler(IReadRepository<Order> repository) 
+public class GetOrderByIdHandler(IReadRepository<Order> repository)
     : IQueryHandler<GetOrderByIdQuery, Result<OrderDto>>
 {
     public async ValueTask<Result<OrderDto>> Handle(GetOrderByIdQuery query, CancellationToken ct)

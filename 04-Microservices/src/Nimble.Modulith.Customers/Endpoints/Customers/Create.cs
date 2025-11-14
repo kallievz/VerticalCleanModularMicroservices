@@ -2,7 +2,6 @@ using Ardalis.Result;
 using FastEndpoints;
 using Mediator;
 using Nimble.Modulith.Customers.Infrastructure;
-using Nimble.Modulith.Customers.UseCases.Customers;
 using Nimble.Modulith.Customers.UseCases.Customers.Commands;
 
 namespace Nimble.Modulith.Customers.Endpoints.Customers;

@@ -14,7 +14,7 @@ public class DimDate
     public int DayOfWeek { get; set; }
     public string DayName { get; set; } = string.Empty;
     public string MonthName { get; set; } = string.Empty;
-    
+
     // Navigation
     public ICollection<FactOrder> Orders { get; set; } = new List<FactOrder>();
 }

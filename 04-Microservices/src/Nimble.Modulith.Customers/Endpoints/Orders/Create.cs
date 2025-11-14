@@ -6,7 +6,7 @@ using Nimble.Modulith.Customers.UseCases.Orders.Commands;
 
 namespace Nimble.Modulith.Customers.Endpoints.Orders;
 
-public class Create(IMediator mediator, ICustomerAuthorizationService authService) 
+public class Create(IMediator mediator, ICustomerAuthorizationService authService)
 : Endpoint<CreateOrderRequest, OrderResponse>
 {
     public override void Configure()

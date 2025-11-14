@@ -27,7 +27,7 @@ public static class SharedInfrastructureExtensions
 
         // Register the email command publisher behavior to intercept SendEmailCommand
         // and publish it to the message bus instead of handling it in-process
-        builder.Services.AddScoped<IPipelineBehavior<Email.Contracts.SendEmailCommand, Unit>, 
+        builder.Services.AddScoped<IPipelineBehavior<Email.Contracts.SendEmailCommand, Unit>,
             EmailCommandPublisherBehavior>();
 
         return builder;

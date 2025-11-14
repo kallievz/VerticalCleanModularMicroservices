@@ -6,7 +6,7 @@ using Nimble.Modulith.Products.Contracts;
 
 namespace Nimble.Modulith.Customers.UseCases.Orders.Commands;
 
-public class AddOrderItemHandler(IRepository<Order> repository, IMediator mediator) 
+public class AddOrderItemHandler(IRepository<Order> repository, IMediator mediator)
     : ICommandHandler<AddOrderItemCommand, Result<OrderDto>>
 {
     public async ValueTask<Result<OrderDto>> Handle(AddOrderItemCommand command, CancellationToken ct)
@@ -45,7 +45,7 @@ public class AddOrderItemHandler(IRepository<Order> repository, IMediator mediat
         {
             return Result<OrderDto>.Error(ex.Message);
         }
-        
+
         order.UpdatedAt = DateTime.UtcNow;
 
         await repository.UpdateAsync(order, ct);

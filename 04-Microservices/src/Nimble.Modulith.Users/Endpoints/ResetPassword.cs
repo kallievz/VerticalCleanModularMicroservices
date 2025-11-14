@@ -17,14 +17,15 @@ public class ResetPasswordResponse
     public bool Success { get; set; }
 }
 
-public class ResetPassword(UserManager<IdentityUser> userManager, IMediator mediator) : 
+public class ResetPassword(UserManager<IdentityUser> userManager, IMediator mediator) :
     Endpoint<ResetPasswordRequest, ResetPasswordResponse>
 {
     public override void Configure()
     {
         Post("/users/reset-password");
         AllowAnonymous(); // Allow anyone to request password reset
-        Summary(s => {
+        Summary(s =>
+        {
             s.Summary = "Reset user password";
             s.Description = "Generates a new password and emails it to the user";
         });
@@ -33,7 +34,7 @@ public class ResetPassword(UserManager<IdentityUser> userManager, IMediator medi
     public override async Task HandleAsync(ResetPasswordRequest req, CancellationToken ct)
     {
         var user = await userManager.FindByEmailAsync(req.Email);
-        
+
         if (user == null)
         {
             // Don't reveal whether user exists or not for security

@@ -26,7 +26,7 @@ public static class ProductsModuleExtensions
         using var scope = app.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<ProductsDbContext>();
         await context.Database.MigrateAsync();
-        
+
         return app;
     }
 }

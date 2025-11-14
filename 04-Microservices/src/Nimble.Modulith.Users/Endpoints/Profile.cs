@@ -15,7 +15,8 @@ public class Profile : EndpointWithoutRequest<ProfileResponse>
     public override void Configure()
     {
         Get("/profile");
-        Summary(s => {
+        Summary(s =>
+        {
             s.Summary = "See your profile if logged in";
             s.Description = "See your profile";
         });

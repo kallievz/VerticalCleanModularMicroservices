@@ -9,9 +9,9 @@ using Nimble.Modulith.Users.Contracts;
 namespace Nimble.Modulith.Customers.UseCases.Customers.Commands;
 
 public class CreateCustomerHandler(
-    IRepository<Customer> repository, 
+    IRepository<Customer> repository,
     IMediator mediator,
-    UserManager<IdentityUser> userManager) 
+    UserManager<IdentityUser> userManager)
     : ICommandHandler<CreateCustomerCommand, Result<CustomerDto>>
 {
     public async ValueTask<Result<CustomerDto>> Handle(CreateCustomerCommand command, CancellationToken ct)

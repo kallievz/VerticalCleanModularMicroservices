@@ -35,7 +35,7 @@ public static class CustomersModuleExtensions
         using var scope = app.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<CustomersDbContext>();
         await context.Database.MigrateAsync();
-        
+
         return app;
     }
 }

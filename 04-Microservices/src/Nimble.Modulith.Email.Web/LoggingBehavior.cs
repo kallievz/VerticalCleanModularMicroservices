@@ -10,7 +10,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     {
         var requestName = typeof(TRequest).Name;
         Log.Information("Handling {RequestName}", requestName);
-        
+
         try
         {
             var response = await next(message, cancellationToken);

@@ -10,7 +10,7 @@ public class SendEmailConsumer : IConsumer<SendEmailCommand>
     private readonly IMediator _mediator;
     private readonly ILogger<SendEmailConsumer> _logger;
 
-    public SendEmailConsumer(IMediator mediator, 
+    public SendEmailConsumer(IMediator mediator,
         ILogger<SendEmailConsumer> logger)
     {
         _mediator = mediator;
@@ -20,7 +20,7 @@ public class SendEmailConsumer : IConsumer<SendEmailCommand>
     public async Task Consume(ConsumeContext<SendEmailCommand> context)
     {
         _logger.LogInformation("Processing email request for {To}", context.Message.To);
-        
+
         try
         {
             await _mediator.Send(context.Message, context.CancellationToken);

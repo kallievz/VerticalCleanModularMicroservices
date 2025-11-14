@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add service defaults (Aspire configuration)
 builder.AddServiceDefaults();
 
-builder.Services.AddMediator(); 
+builder.Services.AddMediator();
 // Add Mediator with source generation
 // use assembly:
 // [assembly: Mediator.MediatorOptions(ServiceLifetime = ServiceLifetime.Scoped)]

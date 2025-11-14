@@ -21,10 +21,11 @@ public static class UsersEndpoints
                 return Results.NotFound();
             }
 
-            return Results.Ok(new { 
-                Id = currentUser.Id, 
+            return Results.Ok(new
+            {
+                Id = currentUser.Id,
                 Email = currentUser.Email,
-                UserName = currentUser.UserName 
+                UserName = currentUser.UserName
             });
         })
         .RequireAuthorization()
@@ -34,12 +35,13 @@ public static class UsersEndpoints
         // Get all users (for testing/admin purposes)
         users.MapGet("/", async (UserManager<IdentityUser> userManager) =>
         {
-            var allUsers = userManager.Users.Select(u => new { 
-                Id = u.Id, 
-                Email = u.Email, 
-                UserName = u.UserName 
+            var allUsers = userManager.Users.Select(u => new
+            {
+                Id = u.Id,
+                Email = u.Email,
+                UserName = u.UserName
             }).ToList();
-            
+
             return Results.Ok(allUsers);
         })
         .RequireAuthorization()

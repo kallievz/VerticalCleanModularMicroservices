@@ -16,7 +16,7 @@ public static class UsersModuleExtensions
     {
         // Add SQL Server DbContext with Aspire
         builder.AddSqlServerDbContext<UsersDbContext>("usersdb");
-       
+
 
         // Add Authentication
         builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
@@ -31,7 +31,7 @@ public static class UsersModuleExtensions
             options.Password.RequireDigit = false;
             options.Password.RequireUppercase = false;
             options.Password.RequireLowercase = false;
-            
+
             options.User.RequireUniqueEmail = true;
         })
         .AddEntityFrameworkStores<UsersDbContext>()
@@ -47,7 +47,7 @@ public static class UsersModuleExtensions
         using var scope = app.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<UsersDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         return app;
     }
 }

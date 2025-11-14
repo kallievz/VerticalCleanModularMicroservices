@@ -7,7 +7,7 @@ using Nimble.Modulith.Customers.UseCases.Customers.Queries;
 
 namespace Nimble.Modulith.Customers.UseCases.Orders.Commands;
 
-public class ConfirmOrderHandler(IRepository<Order> repository, IMediator mediator) 
+public class ConfirmOrderHandler(IRepository<Order> repository, IMediator mediator)
     : ICommandHandler<ConfirmOrderCommand, Result<OrderDto>>
 {
     public async ValueTask<Result<OrderDto>> Handle(ConfirmOrderCommand command, CancellationToken ct)
@@ -27,12 +27,12 @@ public class ConfirmOrderHandler(IRepository<Order> repository, IMediator mediat
         // Get customer details for the event
         var customerQuery = new GetCustomerByIdQuery(order.CustomerId);
         var customerResult = await mediator.Send(customerQuery, ct);
-        
+
         if (!customerResult.IsSuccess)
         {
             return Result<OrderDto>.Error($"Customer with ID {order.CustomerId} not found");
         }
-        
+
         var customer = customerResult.Value;
 
         // Change order status to Confirmed

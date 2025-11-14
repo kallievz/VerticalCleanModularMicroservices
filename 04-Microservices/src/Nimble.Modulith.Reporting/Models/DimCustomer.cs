@@ -10,7 +10,7 @@ public class DimCustomer
     public string CustomerName { get; set; } = string.Empty;
     public DateTime FirstSeenDate { get; set; }
     public DateTime LastUpdatedDate { get; set; }
-    
+
     // Navigation
     public ICollection<FactOrder> Orders { get; set; } = new List<FactOrder>();
 }

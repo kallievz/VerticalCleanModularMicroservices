@@ -5,7 +5,7 @@ using Nimble.Modulith.Customers.Domain.OrderAggregate;
 
 namespace Nimble.Modulith.Customers.UseCases.Orders.Queries;
 
-public class ListOrdersByDateHandler(IReadRepository<Order> repository) 
+public class ListOrdersByDateHandler(IReadRepository<Order> repository)
     : IQueryHandler<ListOrdersByDateQuery, Result<List<OrderDto>>>
 {
     public async ValueTask<Result<List<OrderDto>>> Handle(ListOrdersByDateQuery query, CancellationToken ct)

@@ -5,7 +5,7 @@ using Nimble.Modulith.Customers.Domain.OrderAggregate;
 
 namespace Nimble.Modulith.Customers.UseCases.Orders.Commands;
 
-public class DeleteOrderItemHandler(IRepository<Order> repository) 
+public class DeleteOrderItemHandler(IRepository<Order> repository)
     : ICommandHandler<DeleteOrderItemCommand, Result<OrderDto>>
 {
     public async ValueTask<Result<OrderDto>> Handle(DeleteOrderItemCommand command, CancellationToken ct)
@@ -31,7 +31,7 @@ public class DeleteOrderItemHandler(IRepository<Order> repository)
         {
             return Result<OrderDto>.Error(ex.Message);
         }
-        
+
         order.UpdatedAt = DateTime.UtcNow;
 
         await repository.UpdateAsync(order, ct);

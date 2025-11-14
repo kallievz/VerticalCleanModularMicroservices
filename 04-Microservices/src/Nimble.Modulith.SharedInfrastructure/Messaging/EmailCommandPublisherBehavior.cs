@@ -31,13 +31,13 @@ public class EmailCommandPublisherBehavior : IPipelineBehavior<SendEmailCommand,
     }
 
     public async ValueTask<Unit> Handle(
-        SendEmailCommand message, 
+        SendEmailCommand message,
         MessageHandlerDelegate<SendEmailCommand, Unit> next,
         CancellationToken cancellationToken)
     {
         _logger.LogInformation(
-            "Intercepting SendEmailCommand for {To} with subject '{Subject}' - publishing to message bus", 
-            message.To, 
+            "Intercepting SendEmailCommand for {To} with subject '{Subject}' - publishing to message bus",
+            message.To,
             message.Subject);
 
         // Publish to RabbitMQ instead of handling in-process

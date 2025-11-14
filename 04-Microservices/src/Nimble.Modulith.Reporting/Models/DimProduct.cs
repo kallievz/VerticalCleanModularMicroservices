@@ -9,7 +9,7 @@ public class DimProduct
     public string ProductName { get; set; } = string.Empty;
     public DateTime FirstSeenDate { get; set; }
     public DateTime LastUpdatedDate { get; set; }
-    
+
     // Navigation
     public ICollection<FactOrder> OrderItems { get; set; } = new List<FactOrder>();
 }

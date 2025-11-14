@@ -5,7 +5,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Nimble.Modulith.Reporting.Data;
 using Nimble.Modulith.Reporting.Services;
-using Serilog;
 
 namespace Nimble.Modulith.Reporting;
 
@@ -32,11 +31,11 @@ public static class ReportingModuleExtensions
         var context = scope.ServiceProvider.GetRequiredService<ReportingDbContext>();
         var logger = scope.ServiceProvider.GetRequiredService<ILogger<ReportingDbContext>>();
         var env = scope.ServiceProvider.GetRequiredService<IHostEnvironment>();
-        
+
         try
         {
             logger.LogInformation("Ensuring reporting database exists...");
-            
+
             // In development, drop and recreate to ensure seed data is applied
             if (env.IsDevelopment())
             {
@@ -61,7 +60,7 @@ public static class ReportingModuleExtensions
             logger.LogError(ex, "Failed to ensure reporting database exists");
             throw;
         }
-        
+
         return app;
     }
 }
